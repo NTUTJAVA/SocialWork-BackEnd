@@ -1,6 +1,7 @@
-package com.socialWork.auth.pojo;
+package com.socialWork.auth.entity;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -44,8 +45,10 @@ public class User implements Serializable {
     @Column(name = "nickname", nullable = false)
     String nickname;
 
-    @Column(name = "refresh_token")
-    String refreshToken;
+    @Column(name = "createTime", nullable = false)
+    Timestamp createTime;
+    @Column(name = "updateTime")
+    Timestamp updateTime;
 
     @ManyToMany(cascade = {CascadeType.REFRESH}, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "uid", referencedColumnName = "userId")}, inverseJoinColumns = {@JoinColumn(name = "rid", referencedColumnName = "roleId")})
