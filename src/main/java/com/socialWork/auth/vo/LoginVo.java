@@ -1,4 +1,4 @@
-package com.socialWork.auth.dto;
+package com.socialWork.auth.vo;
 
 import java.io.Serializable;
 
@@ -12,7 +12,7 @@ import lombok.ToString;
 @Data
 @ToString
 @ApiModel(description = "login validate Dto")
-public final class LoginDto implements Serializable {
+public final class LoginVo implements Serializable {
 	/**
 	 * 
 	 */
@@ -23,4 +23,6 @@ public final class LoginDto implements Serializable {
 	@ApiModelProperty(value = "密碼", position = 2)
 	@NotBlank(message = "密碼不能為空")
 	private String password;
+	@ApiModelProperty(value = "使用者登入IP", position = 3)
+	private String ip;
 }
